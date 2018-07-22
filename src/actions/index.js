@@ -4,6 +4,7 @@ export const showFilterList = (todos, statusOfList) => ({
   todos,
   statusOfList
 });
-// export const add = (todo) => ({
-//   type: 'ADD_ITEM', todo
-// })
+export const add = todo => ({
+  type: 'ADD_ITEM',
+  todo
+});

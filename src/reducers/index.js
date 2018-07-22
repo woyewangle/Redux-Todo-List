@@ -7,6 +7,7 @@ export default (state = { todos: [], statusOfList: Todo.ALL }, action) => {
       : todo => {
           return todo.status === state.statusOfList;
         };
+  const newState = state;
 
   switch (action.type) {
     case 'TOGGLE_ACTIVE': {
@@ -29,13 +30,12 @@ export default (state = { todos: [], statusOfList: Todo.ALL }, action) => {
       };
     }
 
-    // case 'ADD_ITEM': {
-    //   console.log("添加");
-    //   return {
-    //     ...state,
-    //     todos: [...state.todos,action.todo].filter(statusFilter),
-    //   };
-    // }
+    case 'ADD_ITEM': {
+      return {
+        ...state,
+        todos: [...state.todos, action.todo].filter(statusFilter)
+      };
+    }
     default:
       return state;
   }

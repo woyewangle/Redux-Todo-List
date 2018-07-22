@@ -4,6 +4,8 @@ const todosAPI = {
   todos: [],
   add(item) {
     this.todos.push(item);
+    console.log('在资源文件pushitem');
+    console.log(this.todos);
   },
   filerByStatus(status) {
     if (status === Todo.ALL) {

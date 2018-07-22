@@ -29,6 +29,7 @@ class TodoItem extends Component {
 
   render() {
     const item = this.props.item;
+    console.log('生成行的地方');
     return (
       <li className={item.status}>
         {

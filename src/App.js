@@ -8,28 +8,31 @@ import todosAPI from './api/TodoResourseAPI';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.todosAPI = todosAPI;
+    // this.todosAPI = todosAPI;
 
-    this.state = {
-      todos: [],
-      statusOfList: Todo.ALL
-    };
+    // this.state = {
+    //   todos: [],
+    //   statusOfList: Todo.ALL
+    // };
   }
 
-  componentDidMount() {
-    this.setState({
-      todos: this.deepCopy(this.todosAPI.filerByStatus(Todo.ALL))
-    });
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     todos: this.deepCopy(this.todosAPI.filerByStatus(Todo.ALL))
+  //   });
+  // }
 
   add(event) {
-    this.todosAPI.add(new Todo(this.refs.newItem.value));
-    const todos = this.deepCopy(
-      this.todosAPI.filerByStatus(this.state.statusOfList)
-    );
-    this.setState({ todos });
+    // this.todosAPI.add(new Todo(this.refs.newItem.value));
+    // const todos = this.deepCopy(
+    //   this.todosAPI.filerByStatus(this.state.statusOfList)
+    // );
+    // this.setState({ todos });
+    // this.refs.newItem.value = '';
+    // console.log(todos);
+    const content = this.refs.newItem.value;
+    this.props.OnAdd(content);
     this.refs.newItem.value = '';
-    console.log(todos);
   }
 
   toggleActive(viewId) {
@@ -82,7 +85,9 @@ class App extends Component {
         <div>
           <ol>
             {(() => {
-              return this.state.todos.map(item => (
+              console.log('App打印行');
+              console.log(this.props.todos);
+              return this.props.todos.map(item => (
                 <TodoItem
                   item={item}
                   key={item.viewId}
