@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import App from '../App';
 import todosAPI from '../api/TodoResourseAPI';
-import { toggleTodo, showFilterList, add } from '../actions';
+import { toggleTodo, showFilterList, add, updateTodo } from '../actions';
 import Todo from '../model/Todo';
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -26,6 +26,11 @@ const mapDispatchToProps = dispatch => {
       const todo = new Todo(content);
       todosAPI.add(todo);
       dispatch(add(todo));
+    },
+
+    OnupdateItemContent: (viewId, content) => {
+      const todo = todosAPI.updateItemContent(viewId, content);
+      dispatch(updateTodo(todo));
     }
   };
 };

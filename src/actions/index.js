@@ -8,3 +8,8 @@ export const add = todo => ({
   type: 'ADD_ITEM',
   todo
 });
+
+export const updateTodo = todo => ({
+  type: 'UPDAtE_ITEM',
+  todo
+});

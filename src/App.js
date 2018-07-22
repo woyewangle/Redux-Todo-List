@@ -56,11 +56,12 @@ class App extends Component {
   }
 
   updateItemContent(viewId, content) {
-    this.todosAPI.updateItemContent(viewId, content);
-    const todos = this.deepCopy(
-      this.todosAPI.filerByStatus(this.state.statusOfList)
-    );
-    this.setState({ todos, statusOfList: this.state.statusOfList });
+    // this.todosAPI.updateItemContent(viewId, content);
+    // const todos = this.deepCopy(
+    //   this.todosAPI.filerByStatus(this.state.statusOfList)
+    // );
+    // this.setState({ todos, statusOfList: this.state.statusOfList });
+    this.props.OnupdateItemContent(viewId, content);
   }
 
   deepCopy(array) {
