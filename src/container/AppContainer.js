@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import App from '../App';
 import todosAPI from '../api/TodoResourseAPI';
-import { toggleTodo } from '../actions';
+import { toggleTodo, showFilterList } from '../actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     todos: state.todos,
@@ -14,6 +14,11 @@ const mapDispatchToProps = dispatch => {
     onToggleTodo: viewId => {
       const todo = todosAPI.toggleActive(viewId);
       dispatch(toggleTodo(todo));
+    },
+
+    OnshowFilterList: statusOfList => {
+      const todos = todosAPI.filerByStatus(statusOfList);
+      dispatch(showFilterList(todos));
     }
   };
 };

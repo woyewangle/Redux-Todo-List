@@ -22,12 +22,13 @@ export default (state = { todos: [], statusOfList: Todo.ALL }, action) => {
           .filter(statusFilter)
       };
     }
-    // case 'SHOW_FILTER_LIST': {
-    //   return {
-    //     todos: [...action.todos],
-    //     statusFilter: [...action.statusOfList]
-    //   };
-    // }
+    case 'SHOW_FILTER_LIST': {
+      return {
+        todos: [...action.todos],
+        statusFilter: [...action.statusOfList]
+      };
+    }
+
     // case 'ADD_ITEM': {
     //   console.log("添加");
     //   return {

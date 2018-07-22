@@ -42,11 +42,14 @@ class App extends Component {
   }
 
   showFilterList(event) {
-    console.log(this.state.todos);
+    // console.log(this.state.todos);
+    // const statusOfList = event.target.attributes.getNamedItem('data-filter')
+    //   .value;
+    // const todos = this.deepCopy(this.todosAPI.filerByStatus(statusOfList));
+    // this.setState({ todos, statusOfList });
     const statusOfList = event.target.attributes.getNamedItem('data-filter')
       .value;
-    const todos = this.deepCopy(this.todosAPI.filerByStatus(statusOfList));
-    this.setState({ todos, statusOfList });
+    this.props.OnshowFilterList(statusOfList);
   }
 
   updateItemContent(viewId, content) {
@@ -100,7 +103,7 @@ class App extends Component {
                 onClick={e => this.showFilterList(e)}
                 data-filter="all"
                 className={classNames({
-                  selected: this.state.statusOfList === Todo.ALL
+                  selected: this.props.statusOfList === Todo.ALL
                 })}
               >
                 ALL
@@ -112,7 +115,7 @@ class App extends Component {
                 onClick={e => this.showFilterList(e)}
                 data-filter="active"
                 className={classNames({
-                  selected: this.state.statusOfList === Todo.ACTIVE
+                  selected: this.props.statusOfList === Todo.ACTIVE
                 })}
               >
                 Active
@@ -124,7 +127,7 @@ class App extends Component {
                 onClick={e => this.showFilterList(e)}
                 data-filter="completed"
                 className={classNames({
-                  selected: this.state.statusOfList === Todo.COMPLETED
+                  selected: this.props.statusOfList === Todo.COMPLETED
                 })}
               >
                 Complete
