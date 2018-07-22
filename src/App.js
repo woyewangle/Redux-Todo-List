@@ -33,12 +33,12 @@ class App extends Component {
   }
 
   toggleActive(viewId) {
-    // this.props.onToggleTodo(viewId);
-    this.todosAPI.toggleActive(viewId);
-    const todos = this.deepCopy(
-      this.todosAPI.filerByStatus(this.state.statusOfList)
-    );
-    this.setState({ todos });
+    this.props.onToggleTodo(viewId);
+    // this.todosAPI.toggleActive(viewId);
+    // const todos = this.deepCopy(
+    //   this.todosAPI.filerByStatus(this.state.statusOfList)
+    // );
+    // this.setState({ todos });
   }
 
   showFilterList(event) {
